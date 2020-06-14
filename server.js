@@ -1,15 +1,24 @@
-var express = require("express"); //
-var logger = require("morgan"); //
-var mongoose = require("mongoose"); //
+var express = require("express"); 
+var logger = require("morgan"); 
+var mongoose = require("mongoose"); 
+
+var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
-var app = express(); //
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
+
+
 
 var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
+var app = express(); 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Parse request body as JSON
