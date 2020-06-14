@@ -4,7 +4,7 @@ This app scrapes news articles from AP News and allows users to comment on artic
 
 ## Heroku Deployment
 
-* Please go to the following link: `https://blooming-chamber-57879.herokuapp.com/` 
+* Please go to the following link: [MongoNewsScraper](https://blooming-chamber-57879.herokuapp.com/)
 
 ## Technologies Used:
 -   HTML
@@ -30,7 +30,7 @@ This app scrapes news articles from AP News and allows users to comment on artic
 5. **Mongoose**: https://www.npmjs.com/package/mongoose
 
 
-## Connect with Me & View my Work:
+## Connect with Me:
 - <a href="https://mv-stack.github.io/Portfolio-EC/" target="_blank"> Portfolio </a>
 - <a href="https://github.com/MV-stack" target="_blank"> GitHub </a>
 - <a href="www.linkedin.com/in/miguel-a-villegas" target="_blank"> LinkedIn </a>
