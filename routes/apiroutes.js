@@ -2,16 +2,16 @@ var db = require ("../models")
 var axios = require("axios");
 var cheerio = require("cheerio");
 function apiroutes(app){ 
-  // A GET route for scraping the echoJS website
+  // A GET route for scraping 
 app.get("/scrape", function(req, res) {
-    // First, we grab the body of the html with axios
+    // Grab the body of the html with axios
     axios.get("https://apnews.com").then(function(response) {
-      // Then, we load that into cheerio and save it to $ for a shorthand selector
+      // Load body into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data);
   
-      // Now, we grab every h2 within an article tag, and do the following:
+      // Grab every h1 within an article tag, and do the following:
       $("div.FeedCard").each(function(i, element) {
-        // Save an empty result object
+        //Save an empty result object
         var result = {};
   
         // Add the text and href of every link, and save them as properties of the result object
