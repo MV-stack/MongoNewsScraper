@@ -23,8 +23,6 @@ apiroutes(app);
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/apnews", { useNewUrlParser: true });
 
-
-
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");

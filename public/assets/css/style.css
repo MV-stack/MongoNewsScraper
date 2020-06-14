@@ -1,0 +1,34 @@
+.jumbotron {
+    background-image: url("");
+    background-size: cover;
+    height: 25px;
+}
+
+.container {
+    margin-top: 5px;
+}
+
+h1 {
+   font-size: 5px;
+   color: whitesmoke;
+}
+
+.lead {
+    color: whitesmoke;
+}
+
+.save {
+    margin-top: 2%;
+}
+
+.delete {
+    margin-top: 2%;
+}
+
+.addNote {
+    margin-top: 1%;
+}
+
+.deleteNote {
+    margin-bottom: 2%;
+}

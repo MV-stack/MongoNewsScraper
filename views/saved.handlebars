@@ -1,24 +1,33 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">MongoNewsScraper</a>
+  <a class="navbar-brand" href="#">Mongo-Scraper</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="/saved">Saved Articles</a>
-      <button type="button" class="btn btn-primary" id="scrape">Scrape Articles</button>     
     </div>
   </div>
 </nav>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4 text-center">MongoNewsScraper</h1>
-    <p class="lead text-center"><strong>Scrape the latest AP News articles.</strong></p>
+    <h1 class="display-4 text-center">Saved Articles</h1>
+    <p class="lead text-center"><strong>Add notes to saved AP News articles.</strong></p>
   </div>
 </div>
 <div id="articles">
     {{#each articles}}
-        {{> article }}
+        {{> saved-article }}
     {{/each}}
 </div>
+{{#each articles}}
+    {{> modal }}
+{{/each}}
+      
+
+
+
+
+
