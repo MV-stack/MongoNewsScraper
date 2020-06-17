@@ -47,12 +47,43 @@ app.get("/scrape", function(req, res) {
       res.send("Scrape Complete");
     });
   });
-  
+  app.put("/api/articles/:id",function(req, res){
+    db.Article.update({_id:req.params.id},{
+      saved:true
+    }).then(function(results){
+      res.json(results)
+    })
+  })
+  app.get("/saved",function(req, res){
+    db.Article.find({saved:true}).then(function(dbArticle){
+      var newArticles = dbArticle.map(article =>{
+        return {
+          _id:article._id,
+          title:article.title,
+          summary:article.summary,
+          link:article.link
+        }
+      })
+
+      res.render("saved",{articles:newArticles})
+    }).catch(function(err){
+      res.json(err)
+    })
+  })
   // Route for getting all Articles from the db
-  app.get("/articles", function(req, res) {
+  app.get("/", function(req, res) {
     // TODO: Finish the route so it grabs all of the articles
-    db.Article.find({}).then(function(dbArticle){
-      res.json(dbArticle)
+    db.Article.find({saved:false}).then(function(dbArticle){
+      var newArticles = dbArticle.map(article =>{
+        return {
+          _id:article._id,
+          title:article.title,
+          summary:article.summary,
+          link:article.link
+        }
+      })
+
+      res.render("index",{articles:newArticles})
     }).catch(function(err){
       res.json(err)
     })

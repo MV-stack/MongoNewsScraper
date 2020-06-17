@@ -5,7 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="/saved">Saved Articles</a>
       <button type="button" class="btn btn-primary" id="scrape">Scrape Articles</button>     
     </div>
@@ -17,8 +17,15 @@
     <p class="lead text-center"><strong>Scrape the latest AP News articles.</strong></p>
   </div>
 </div>
-<div id="articles">
+<div id="articles" class="container">
     {{#each articles}}
-        {{> article }}
+        <div class="row">
+          <div class="col-sm-12">
+            <a href="{{link}}"> <h1>{{title}}</h1></a>
+            <p>{{summary}}</p>
+            <button data-id={{_id}} class="saveArticle" >Save Article</button>
+          </div>
+        </div>
+
     {{/each}}
 </div>

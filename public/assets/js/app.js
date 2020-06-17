@@ -1,13 +1,4 @@
-// Grab the articles as a json
-$.getJSON("/articles", function(data) {
-  // For each one
-  for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-  }
-});
-
-
+ 
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
   // Empty the notes from the note section
@@ -41,6 +32,16 @@ $(document).on("click", "p", function() {
       }
     });
 });
+
+$(document).on("click", ".saveArticle", function(){
+  var thisId = $(this).attr("data-id")
+  $.ajax({
+    url:"/api/articles/"+thisId, 
+    method:"PUT"
+  }).then(function(data){
+    location.reload()
+  })
+})
 
 // When you click the savenote button
 $(document).on("click", "#savenote", function() {
