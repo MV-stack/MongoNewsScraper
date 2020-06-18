@@ -71,8 +71,7 @@ app.get("/scrape", function(req, res) {
     })
   })
   // Route for getting all Articles from the db
-  app.get("/", function(req, res) {
-    // TODO: Finish the route so it grabs all of the articles
+  app.get("/", function(req, res) {   
     db.Article.find({saved:false}).then(function(dbArticle){
       var newArticles = dbArticle.map(article =>{
         return {
@@ -91,20 +90,16 @@ app.get("/scrape", function(req, res) {
   
   // Route for grabbing a specific Article by id, populate it with it's note
   app.get("/articles/:id", function(req, res) {
-    // TODO
    db.Article.findOne({}).populate("note").then(function(dbArticle){
      res.json(dbArticle)
    }).catch(function(err){
      res.json(err)
-   })
-    // Finish the route so it finds one article using the req.params.id,
-    // and run the populate method with "note",
-    // then responds with the article with the note included
+   })  
   });
   
   // Route for saving/updating an Article's associated Note
   app.post("/articles/:id", function(req, res) {
-    // TODO
+    
     db.Article.create(req.body)
     .then(function(dbArticle) {
       // If a Note was created successfully, find one User (there's only one) and push the new Note's _id to the User's `notes` array
